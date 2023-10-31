@@ -1,4 +1,5 @@
 import '../styles/Top.css'
+import PropTypes from 'prop-types'
 
 export default function Top({ fileName }) {
     return (
@@ -13,4 +14,8 @@ export default function Top({ fileName }) {
             </div>
         </div>
     )
+}
+
+Top.propTypes = {
+    fileName: PropTypes.string
 }

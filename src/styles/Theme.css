@@ -1,0 +1,14 @@
+.theme {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
