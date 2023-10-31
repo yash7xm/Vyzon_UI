@@ -5,6 +5,7 @@ import Label from './Label'
 import Playground from './Playground'
 import Result from './Result'
 import Theme from './Theme'
+import Doc from './Doc'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Label heading={'Result'} />
         <Result />
         <Label heading={'Documentation'} />
+        <Doc />
       </div>
     </div>
   )
