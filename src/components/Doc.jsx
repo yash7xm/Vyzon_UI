@@ -12,7 +12,7 @@ const docData = [
     {
         heading: '# Operators',
         info: `=> The operators are the same as in other programming languages. Ex: &&, ||, !, <, >, <=, >=, ==, !=, +, -, *, /, %, ^, =, +=, -=, *=, /=`,
-        code: `let a;  // Variable 'a' is declared and initialized with the default value of 0\nlet b = 1;  // Variable 'b' is declared and initialized with the value 1\nlet c = 'Hello, World!';`,
+        code: `// Comparison Operators\nconst isEqual = 5 == 10;\nconst isNotEqual = 5 != 10;\nconst isGreaterThan = 5 > 10;\nconst isLessThan = 5 < 10;\nconst isGreaterOrEqual = 5 >= 10;\nconst isLessOrEqual = 5 <= 10;\n\n// Logical Operators\nconst andResult = true && false;\nconst orResult = true || false;\nconst notResult = !true;\n\n// Arithmetic Operators\nconst addition = 5 + 10;\nconst subtraction = 10 - 5;\nconst multiplication = 5 * 10;\nconst division = 10 / 5;\nconst modulus = 10 % 3;\nconst exponentiation = 2 ** 3;\n\n// Assignment Operators\nlet x = 5;\nx = x + 2;\nx += 2;\nx -= 3;\nx *= 4;\nx /= 6;\n`,
         fileName: 'Operators.vy'
     },
     {
