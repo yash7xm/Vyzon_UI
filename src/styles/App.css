@@ -9,6 +9,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .container {
@@ -25,5 +27,5 @@ body {
   align-items: start;
   justify-content: center;
   width: 50vw;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }

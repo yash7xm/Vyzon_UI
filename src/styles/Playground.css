@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Proggy;
+    src: url('../assets/fonts/ProggyVector-Regular\ Mac.otf');
+}
+
 .playground {
     display: flex;
     flex-direction: column;
@@ -55,4 +60,11 @@
     resize: none;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    background-color: #131a29;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    color: rgb(214, 222, 235);
+    font-family: 'Proggy', sans-serif;
+    font-size: 1.2rem;
 }
