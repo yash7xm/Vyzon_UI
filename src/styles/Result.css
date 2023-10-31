@@ -5,3 +5,7 @@
     height: 40vh;
     margin-bottom: 1.5rem;
 }
+
+.result #codeArea {
+    font-size: 1.1rem !important;
+}

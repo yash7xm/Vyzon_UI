@@ -1,6 +1,6 @@
-import '../styles/Doc.css'
 import Top from './Top'
 import Editor from './Editor'
+import '../styles/Doc.css'
 
 const docData = [
     {
@@ -46,7 +46,7 @@ export default function Doc() {
                     </div>
                     <div className="example">
                         <Top fileName={data.fileName} />
-                        <Editor disabled={true} code={data.code} />
+                        <Editor disabled={true} code={data.code} className='custom-editor' />
                     </div>
                 </div>
             ))}
