@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Akkurat;
-    src: url('../assets/fonts/Akkurat-Mono.OTF');
+    font-family: menlo;
+    src: url('../assets/fonts/Menlo-Regular.ttf');
 }
 
 .Main {
@@ -9,13 +9,14 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
+    color: rgb(51, 51, 51);
 }
 
-/* .first {
-    color: #fff;    
-    opacity: 0.5;
+.first {
     font-style: italic;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-family: 'Akkurat', sans-serif !important;
+    line-height: 1.5;
 }
 
 .dash {
@@ -23,6 +24,6 @@
 }
 
 .second {
-    font-size: 1.2rem;
-    color: #bcccdc;
-} */
+    font-size: 1rem;
+    font-family: 'menlo', sans-serif !important;
+}
