@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: start;
     gap: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .doc-item {
@@ -38,6 +39,8 @@
     font-weight: 400;
     font-family: 'Akkurat', sans-serif;
     font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
 }
 
 .example {
