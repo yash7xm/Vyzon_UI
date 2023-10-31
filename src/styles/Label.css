@@ -1,0 +1,16 @@
+.label {
+    display: flex;
+    padding: 1rem 5rem;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.8;
+    color: #000;
+}
+
+.arrow {
+    font-size: 0.7rem;
+}
+
+.text {
+    font-size: 0.8rem;
+}

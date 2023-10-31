@@ -1,6 +1,7 @@
 import '../styles/App.css'
 import Header from './Header'
 import Main from './Main'
+import Label from './Label'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <div className="inner-container">
         <Main />
+        <Label heading={'Playground'} />
       </div>
     </div>
   )
