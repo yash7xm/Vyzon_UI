@@ -17,3 +17,17 @@
     font-size: 1.2rem;
     box-shadow: 0 20px 30px -10px #26394d;
 }
+
+#codeArea::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+#codeArea::-webkit-scrollbar-thumb {
+    background-color: #28384e;
+    border-radius: 20px;
+}
+
+#codeArea::-webkit-scrollbar-track {
+    background-color: transparent;
+}
