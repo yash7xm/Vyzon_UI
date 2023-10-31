@@ -3,8 +3,8 @@
     width: 100%;
     align-items: center;
     background-color: #1f2937;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     padding: 0.8rem 1rem;
     justify-content: space-between;
 }
