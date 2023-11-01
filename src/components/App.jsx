@@ -6,6 +6,7 @@ import Playground from './Playground'
 import Result from './Result'
 import Theme from './Theme'
 import Doc from './Doc'
+import Btns from './Btns'
 
 function App() {
   return (
@@ -14,7 +15,10 @@ function App() {
       <Theme />
       <div className="inner-container">
         <Main />
-        <Label heading={'Playground'} />
+        <div className='btn-sec'>
+          <Label heading={'Playground'} />
+          <Btns />
+        </div>
         <Playground />
         <Label heading={'Result'} />
         <Result />

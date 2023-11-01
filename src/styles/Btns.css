@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Akkurat;
+    src: url('../assets/fonts/Akkurat-Mono.OTF');
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Akkurat', sans-serif;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.btns div {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+
+    &:hover {
+        border-bottom: 1.5px solid rgba(0, 0, 0, 1);
+    }
+}
