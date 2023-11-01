@@ -1,10 +1,11 @@
 import '../styles/Editor.css'
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Editor({ disabled = false, code }) {
     // const [liveCode, setLiveCode] = useState('');
     const [lineNumbers, setLineNumbers] = useState([]);
+    const codeAreaRef = React.createRef();
 
     const updateLineNumbers = (text) => {
         const lines = text.split('\n');
@@ -16,6 +17,17 @@ export default function Editor({ disabled = false, code }) {
             updateLineNumbers(code);
         }
     }, [])
+
+    useEffect(() => {
+        if (codeAreaRef.current) {
+            codeAreaRef.current.addEventListener('scroll', () => {
+                // Sync the scrolling of line numbers with the textarea
+                const codeArea = codeAreaRef.current;
+                const lineNumbersContainer = codeAreaRef.current.previousSibling;
+                lineNumbersContainer.scrollTop = codeArea.scrollTop;
+            });
+        }
+    }, [codeAreaRef]);
 
     const handleCodeChange = (event) => {
         const newText = event.target.value;
@@ -32,7 +44,7 @@ export default function Editor({ disabled = false, code }) {
                     </div>
                 ))}
             </div>
-            <textarea id="codeArea" disabled={disabled} value={code} onChange={handleCodeChange}></textarea>
+            <textarea id="codeArea" disabled={disabled} value={code} onChange={handleCodeChange} ref={codeAreaRef}></textarea>
         </div>
     )
 }
