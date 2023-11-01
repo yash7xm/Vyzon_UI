@@ -2,6 +2,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 60vh;
+    /* height: 60vh; */
     margin-bottom: 1.5rem;
+}
+
+.playground .editor-container {
+    height: 55vh;
+}
+
+.playground .line-numbers {
+    height: 100%;
 }

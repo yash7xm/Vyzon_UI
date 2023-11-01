@@ -47,13 +47,20 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 30vh;
     justify-content: center;
     align-items: start;
 }
 
 .doc .example #codeArea {
     font-size: 1rem !important;
+}
+
+.doc .example .editor-container {
+    height: 30vh;
+}
+
+.doc .example .line-numbers {
+    height: 100%;
 }
 
 .doc .example .line-number {
