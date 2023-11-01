@@ -9,3 +9,7 @@
 .result #codeArea {
     font-size: 1.1rem !important;
 }
+
+.result .line-number {
+    font-size: 1.1rem !important;
+}

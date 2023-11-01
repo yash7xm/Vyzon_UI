@@ -7,11 +7,13 @@
     display: flex;
     height: 100%;
     width: 100%;
+    resize: none;
 }
 
 .line-numbers {
-    width: 30px;
-    padding: 1rem 10px;
+    min-width: 2rem;
+    width: max-content;
+    padding: 1rem 0.5rem;
     background-color: #1f2937;
     border-right: 1px solid rgba(255, 255, 255, 0.5);
     border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -20,9 +22,8 @@
 }
 
 .line-number {
-    font-size: 0.8rem;
     font-family: 'Proggy', sans-serif;
-    /* padding: 5px 0; */
+    /* padding-right: 1rem; */
     font-size: 1.2rem;
     color: rgb(214, 222, 235);
 }

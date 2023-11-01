@@ -52,10 +52,10 @@
     align-items: start;
 }
 
-.doc-editor #codeArea{
+.doc .example #codeArea {
     font-size: 1rem !important;
 }
 
-.doc .example #codeArea {
+.doc .example .line-number {
     font-size: 1rem !important;
 }
