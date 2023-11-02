@@ -13,7 +13,7 @@ export default function Editor({ disabled = false, code }) {
     };
 
     useEffect(() => {
-        if(disabled && code) {
+        if (disabled && code) {
             updateLineNumbers(code);
         }
     }, [])
@@ -21,7 +21,6 @@ export default function Editor({ disabled = false, code }) {
     useEffect(() => {
         if (codeAreaRef.current) {
             codeAreaRef.current.addEventListener('scroll', () => {
-                // Sync the scrolling of line numbers with the textarea
                 const codeArea = codeAreaRef.current;
                 const lineNumbersContainer = codeAreaRef.current.previousSibling;
                 lineNumbersContainer.scrollTop = codeArea.scrollTop;

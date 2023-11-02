@@ -53,10 +53,12 @@
 
 .doc .example #codeArea {
     font-size: 1rem !important;
+    flex-grow: 1;
+    height: auto;
 }
 
 .doc .example .editor-container {
-    height: 30vh;
+    height: max-content;
 }
 
 .doc .example .line-numbers {
