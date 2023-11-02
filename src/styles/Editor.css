@@ -8,6 +8,7 @@
     height: 100%;
     width: 100%;
     resize: none;
+    /* overflow: auto; */
 }
 
 .line-numbers {
@@ -29,21 +30,28 @@
     color: rgb(214, 222, 235);
 }
 
+.textarea {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
 #codeArea {
     /* flex-grow: 1; */
     width: 100%;
     height: 100%;
     resize: none;
-    /* border-bottom-left-radius: 20px; */
     border-bottom-right-radius: 20px;
     background-color: #131a29;
     border: none;
     outline: none;
     padding: 1rem;
     color: rgb(214, 222, 235);
-    font-family: 'Proggy', sans-serif;
+    /* font-family: 'Proggy', sans-serif; */
     font-size: 1.2rem;
     box-shadow: 0 20px 30px -10px #26394d;
+    /* text-rendering: geometricPrecision */
 }
 
 #codeArea::-webkit-scrollbar {
@@ -58,4 +66,17 @@
 
 #codeArea::-webkit-scrollbar-track {
     background-color: transparent;
+}
+
+.highlighted-code {
+    position: absolute;
+    color: rgb(214, 222, 235);
+    /* font-family: 'Proggy', sans-serif; */
+    font-size: 1.2rem;
+    padding: 1rem;
+    left: 0;
+    top: 0;
+    margin: 0;
+    /* text-rendering: geometricPrecision */
+    /* overflow: hidden; */
 }

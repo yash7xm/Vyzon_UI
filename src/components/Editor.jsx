@@ -1,9 +1,13 @@
 import '../styles/Editor.css'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react';
+import Prism from 'prismjs';
+import '../styles/Highlight.css'
+import '../utils/mopl'
 
 export default function Editor({ disabled = false, code }) {
-    // const [liveCode, setLiveCode] = useState('');
+    const [liveCode, setLiveCode] = useState('');
+    const [highlightedCode, setHighlightedCode] = useState('');
     const [lineNumbers, setLineNumbers] = useState([]);
     const codeAreaRef = React.createRef();
 
@@ -30,8 +34,12 @@ export default function Editor({ disabled = false, code }) {
 
     const handleCodeChange = (event) => {
         const newText = event.target.value;
-        // setLiveCode(newText);
         updateLineNumbers(newText);
+
+        setLiveCode(newText);
+
+        const highlighted = Prism.highlight(newText, Prism.languages.mopl, 'mopl');
+        setHighlightedCode(highlighted);
     };
 
     return (
@@ -43,7 +51,20 @@ export default function Editor({ disabled = false, code }) {
                     </div>
                 ))}
             </div>
-            <textarea id="codeArea" disabled={disabled} value={code} onChange={handleCodeChange} ref={codeAreaRef}></textarea>
+            <div className="textarea">
+                <textarea
+                    id="codeArea"
+                    disabled={disabled}
+                    value={code}
+                    onChange={handleCodeChange}
+                    ref={codeAreaRef}>
+                </textarea>
+                <div className="highlighted-code">
+                    <pre>
+                        <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+                    </pre>
+                </div>
+            </div>
         </div>
     )
 }

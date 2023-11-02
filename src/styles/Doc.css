@@ -51,8 +51,12 @@
     align-items: start;
 }
 
+.doc .example .textarea {
+    height: auto;
+}
+
 .doc .example #codeArea {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
     flex-grow: 1;
     height: auto;
 }
@@ -66,5 +70,5 @@
 }
 
 .doc .example .line-number {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
 }
