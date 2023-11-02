@@ -21,6 +21,8 @@ export default function Editor({ disabled = false, code }) {
     useEffect(() => {
         if (disabled && code) {
             updateLineNumbers(code);
+            const highlighted = Prism.highlight(code, Prism.languages.mopl, 'mopl');
+            setHighlightedCode(highlighted);
         }
     }, [])
 

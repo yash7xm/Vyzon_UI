@@ -21,3 +21,7 @@
 .result .line-numbers {
     height: 100%;
 }
+
+.result .highlighted-code {
+    font-size: 0.9rem !important;
+}

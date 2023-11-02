@@ -72,3 +72,7 @@
 .doc .example .line-number {
     font-size: 0.9rem !important;
 }
+
+.doc .example .highlighted-code {
+    font-size: 0.9rem !important;
+}
