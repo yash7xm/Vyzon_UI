@@ -10,6 +10,8 @@ export default function Editor({ disabled = false, code }) {
     const [highlightedCode, setHighlightedCode] = useState('');
     const [lineNumbers, setLineNumbers] = useState([]);
     const codeAreaRef = React.createRef();
+    const lineNumbersRef = React.createRef();
+    const highlightedCodeRef = React.createRef();
 
     const updateLineNumbers = (text) => {
         const lines = text.split('\n');
@@ -26,11 +28,13 @@ export default function Editor({ disabled = false, code }) {
         if (codeAreaRef.current) {
             codeAreaRef.current.addEventListener('scroll', () => {
                 const codeArea = codeAreaRef.current;
-                const lineNumbersContainer = codeAreaRef.current.previousSibling;
+                const lineNumbersContainer = lineNumbersRef.current;
+                const highlightedCodeContainer = highlightedCodeRef.current;
                 lineNumbersContainer.scrollTop = codeArea.scrollTop;
+                highlightedCodeContainer.scrollTop = codeArea.scrollTop;
             });
         }
-    }, [codeAreaRef]);
+    }, [codeAreaRef, lineNumbersRef, highlightedCodeRef]);
 
     const handleCodeChange = (event) => {
         const newText = event.target.value;
@@ -44,7 +48,7 @@ export default function Editor({ disabled = false, code }) {
 
     return (
         <div className="editor-container">
-            <div className="line-numbers">
+            <div className="line-numbers" ref={lineNumbersRef}>
                 {lineNumbers.map((line, index) => (
                     <div key={index} className="line-number">
                         {line}
@@ -59,7 +63,7 @@ export default function Editor({ disabled = false, code }) {
                     onChange={handleCodeChange}
                     ref={codeAreaRef}>
                 </textarea>
-                <div className="highlighted-code">
+                <div className="highlighted-code" ref={highlightedCodeRef}>
                     <pre>
                         <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
                     </pre>

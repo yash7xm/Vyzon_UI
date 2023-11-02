@@ -35,6 +35,7 @@
     display: flex;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 #codeArea {
@@ -70,6 +71,7 @@
 
 .highlighted-code {
     position: absolute;
+    /* display: inline-block;   */
     color: rgb(214, 222, 235);
     /* font-family: 'Proggy', sans-serif; */
     font-size: 1.2rem;
@@ -78,5 +80,16 @@
     top: 0;
     margin: 0;
     /* text-rendering: geometricPrecision */
-    /* overflow: hidden; */
+    /* width: 100%; */
+    height: 100%;
+    /* z-index: -1; */
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: hidden;
+
 }
