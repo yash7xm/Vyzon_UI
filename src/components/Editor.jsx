@@ -48,6 +48,12 @@ export default function Editor({ disabled = false, code }) {
         setHighlightedCode(highlighted);
     };
 
+    const handleHighlightClick = () => {
+        if (codeAreaRef.current) {
+            codeAreaRef.current.focus();
+        }
+    };
+
     return (
         <div className="editor-container">
             <div className="line-numbers" ref={lineNumbersRef}>
@@ -65,7 +71,7 @@ export default function Editor({ disabled = false, code }) {
                     onChange={handleCodeChange}
                     ref={codeAreaRef}>
                 </textarea>
-                <div className="highlighted-code" ref={highlightedCodeRef}>
+                <div className="highlighted-code" ref={highlightedCodeRef} onClick={handleHighlightClick}>
                     <pre>
                         <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
                     </pre>
