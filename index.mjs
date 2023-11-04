@@ -1,5 +1,4 @@
 import express from 'express';
-import fs from 'fs';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import execute from './src/language/run.js';
@@ -13,11 +12,7 @@ const port = 8080;
 
 app.post('/execute-code', async (req, res) => {
     const code = req.body.code;
-    const filePath = 'src/language/file.vy';
-    fs.writeFileSync(filePath, code);
-
-    const output = await execute();
-    // console.log(output)
+    const output = await execute(code);
     res.json({output});
 });
 

@@ -11,23 +11,6 @@ import { useState } from 'react'
 function App() {
   const [code, setCode] = useState('');
 
-  // const executeCode = async () => {
-  //   await fetch('http://localhost:8080/execute-code', {
-  //     method: 'POST',
-  //     body: JSON.stringify({ code }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log('Code execution result:', result);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error executing code:', error);
-  //     });
-
-  // }
   const executeCode = async () => {
     try {
       const response = await fetch('http://localhost:8080/execute-code', {
@@ -38,21 +21,19 @@ function App() {
         },
       });
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Code execution result:', result);
+      if (response.status === 200) {
+        console.log(await response.json());
       } else {
-        console.error('Error executing code:', response.statusText);
+        console.error('Error executing code:', await response.text());
       }
     } catch (error) {
       console.error('Error executing code:', error);
     }
-  }
+  };
 
   return (
     <div className="container">
       <Header />
-      {/* <InnerContainer $innerminwidth={removeMinWidth} ref={innerContainerRef}> */}
       <div className="inner-container">
         <Main />
         <div className='btn-sec'>
@@ -64,7 +45,6 @@ function App() {
         <Result />
         <Label heading={'Documentation'} />
         <Doc />
-        {/* </InnerContainer> */}
       </div>
     </div>
   )
