@@ -27,15 +27,22 @@ export default function Editor({ disabled = false, code }) {
     }, [])
 
     useEffect(() => {
-        if (codeAreaRef.current) {
-            codeAreaRef.current.addEventListener('scroll', () => {
-                const codeArea = codeAreaRef.current;
-                const lineNumbersContainer = lineNumbersRef.current;
-                const highlightedCodeContainer = highlightedCodeRef.current;
-                lineNumbersContainer.scrollTop = codeArea.scrollTop;
-                highlightedCodeContainer.scrollTop = codeArea.scrollTop;
-            });
-        }
+        const codeArea = codeAreaRef.current;
+        const lineNumbersContainer = lineNumbersRef.current;
+        const highlightedCodeContainer = highlightedCodeRef.current;
+
+        const handleScroll = () => {
+            const scrollTop = codeArea.scrollTop;
+            lineNumbersContainer.scrollTop = scrollTop;
+            highlightedCodeContainer.scrollTop = scrollTop;
+            codeArea.scrollTop = scrollTop;
+        };
+
+        codeArea.addEventListener('scroll', handleScroll);
+
+        return () => {
+            codeArea.removeEventListener('scroll', handleScroll);
+        };
     }, [codeAreaRef, lineNumbersRef, highlightedCodeRef]);
 
     const handleCodeChange = (event) => {
