@@ -57,7 +57,6 @@
 
 .doc .example #codeArea {
     font-size: 0.9rem !important;
-    flex-grow: 1;
     height: auto;
 }
 
