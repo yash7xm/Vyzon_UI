@@ -7,29 +7,46 @@ import Result from './Result'
 import Doc from './Doc'
 import Btns from './Btns'
 import { useState } from 'react'
-import fs from 'fs'
 
 function App() {
   const [code, setCode] = useState('');
 
-  const executeCode = () => {
-    // const filePath = 'src/language/file.vy';
-    // fs.writeFileSync(filePath, code);
-    // console.log('Code written to file.vy');
-    fetch('http://localhost:8080/execute-code', {
-      method: 'POST',
-      body: JSON.stringify({ code }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log('Code execution result:', result);
-      })
-      .catch((error) => {
-        console.error('Error executing code:', error);
+  // const executeCode = async () => {
+  //   await fetch('http://localhost:8080/execute-code', {
+  //     method: 'POST',
+  //     body: JSON.stringify({ code }),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       console.log('Code execution result:', result);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error executing code:', error);
+  //     });
+
+  // }
+  const executeCode = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/execute-code', {
+        method: 'POST',
+        body: JSON.stringify({ code }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Code execution result:', result);
+      } else {
+        console.error('Error executing code:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error executing code:', error);
+    }
   }
 
   return (

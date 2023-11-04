@@ -6,46 +6,40 @@ const interpreter = new Interpreter();
 
 import fs from 'fs'
 const directory = './src/language/';
+// let output = '';
 
-fs.readdir(directory, (err, files) => {
-    if (err) {
-        console.error(`Error reading directory: ${err}`);
-        return;
-    }
+export default function execute() {
+    return new Promise((resolve, reject) => {
+        fs.readdir(directory, (err, files) => {
+            if (err) {
+                console.error(`Error reading directory: ${err}`);
+                reject(err);
+                return;
+            }
 
-    const vyFile = files.find(file => file.endsWith('.vy'));
+            const vyFile = files.find(file => file.endsWith('.vy'));
 
-    if (!vyFile) {
-        console.error('No .pynot files found in the directory.');
-        return;
-    }
+            if (!vyFile) {
+                console.error('No .vy files found in the directory.');
+                resolve('No .vy files found in the directory.');
+                return;
+            }
 
-    const filePath = `${directory}/${vyFile}`;
+            const filePath = `${directory}/${vyFile}`;
 
-    fs.readFile(filePath, 'utf8', (readErr, data) => {
-        if (readErr) {
-            console.error(`Error reading ${filePath}: ${readErr}`);
-            return;
-        }
+            fs.readFile(filePath, 'utf8', (readErr, data) => {
+                if (readErr) {
+                    console.error(`Error reading ${filePath}: ${readErr}`);
+                    reject(readErr);
+                    return;
+                }
 
-        let code = data;
-
-        const ast = parser.parse(code);
-        interpreter.interpret(ast.body);
+                const code = data;
+                const ast = parser.parse(code);
+                const output = interpreter.interpret(ast.body);
+                resolve(output);
+                console.log(output)
+            });
+        });
     });
-});
-
-let code = `def factorial(n) {
-    if (n <= 1) {
-        return 1;
-    }
-    else {
-        return n * factorial(n - 1);
-    }
 }
-
-let result = factorial(5);
-write(result);`;
-
-const ast = parser.parse(code);
-interpreter.interpret(ast.body);
