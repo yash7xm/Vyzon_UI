@@ -2,7 +2,7 @@ import '../styles/Editor.css'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react';
 
-export default function Editor({ disabled = false, code }) {
+export default function Editor({ disabled = false, code, onCodeChange }) {
     const [lineNumbers, setLineNumbers] = useState([]);
     const codeAreaRef = React.createRef();
     const lineNumbersRef = React.createRef();
@@ -38,6 +38,7 @@ export default function Editor({ disabled = false, code }) {
     const handleCodeChange = (event) => {
         const newText = event.target.value;
         updateLineNumbers(newText);
+        onCodeChange(newText);
     };
 
     return (

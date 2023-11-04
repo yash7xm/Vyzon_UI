@@ -5,7 +5,7 @@ const parser = new Parser();
 const interpreter = new Interpreter();
 
 import fs from 'fs'
-const directory = './';
+const directory = './src/language/';
 
 fs.readdir(directory, (err, files) => {
     if (err) {
@@ -34,3 +34,18 @@ fs.readdir(directory, (err, files) => {
         interpreter.interpret(ast.body);
     });
 });
+
+let code = `def factorial(n) {
+    if (n <= 1) {
+        return 1;
+    }
+    else {
+        return n * factorial(n - 1);
+    }
+}
+
+let result = factorial(5);
+write(result);`;
+
+const ast = parser.parse(code);
+interpreter.interpret(ast.body);
