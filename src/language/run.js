@@ -6,7 +6,7 @@ const interpreter = new Interpreter();
 
 let output = '';
 
-export default function execute(code) {
+export function execute(code) {
     const ast = parser.parse(code);
     return interpreter.interpret(ast.body);
 }
