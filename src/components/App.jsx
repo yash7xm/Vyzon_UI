@@ -11,10 +11,20 @@ import { execute } from '../language/run.js'
 
 function App() {
   const [code, setCode] = useState('');
+  const [result, setResult] = useState('');
 
   const executeCode = async () => {
-    console.log(execute(code));
+    try {
+      const result = execute(code);
+      setResult(result);
+      console.log(result);
+    } catch (error) {
+      // Handle the error here, you can log it or display an error message.
+      console.error("An error occurred:", error);
+      setResult(error);
+    }
   };
+  
 
   return (
     <div className="container">
@@ -27,7 +37,7 @@ function App() {
         </div>
         <Playground onCodeChange={setCode} />
         <Label heading={'Result'} />
-        <Result />
+        <Result res= {result}/>
         <Label heading={'Documentation'} />
         <Doc />
       </div>
