@@ -6,25 +6,36 @@ import Playground from './Playground'
 import Result from './Result'
 import Doc from './Doc'
 import Btns from './Btns'
-import { useState } from 'react'
-import { execute } from '../language/run.js'
+import { useState, useEffect } from 'react'
+import execute from '../language/run'
 
 function App() {
   const [code, setCode] = useState('');
-  const [result, setResult] = useState('');
+  const [output, setOutput] = useState([]);
+
+  const customLogger = {
+    log: (message) => {
+      setOutput((prevOutput) => prevOutput + message + '\n');
+    },
+  };
+
+  useEffect(() => {
+    const originalConsoleLog = console.log;
+    console.log = customLogger.log;
+
+    return () => {
+      console.log = originalConsoleLog;
+    };
+  }, []);
 
   const executeCode = async () => {
     try {
-      const result = execute(code);
-      setResult(result);
-      console.log(result);
+      setOutput([]);
+    execute(code);
     } catch (error) {
-      // Handle the error here, you can log it or display an error message.
-      console.error("An error occurred:", error);
-      setResult(error);
+      setOutput(error);
     }
   };
-  
 
   return (
     <div className="container">
@@ -37,7 +48,7 @@ function App() {
         </div>
         <Playground onCodeChange={setCode} />
         <Label heading={'Result'} />
-        <Result res= {result}/>
+        <Result result={output} />
         <Label heading={'Documentation'} />
         <Doc />
       </div>
@@ -45,4 +56,4 @@ function App() {
   )
 }
 
-export default App
+export default App  

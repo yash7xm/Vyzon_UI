@@ -4,24 +4,18 @@ export default class Interpreter {
 
     constructor(global = GlobalEnvironment) {
         this.global = global;
-        this.result = '';
     }
 
     interpret(node) {
-        this.result = this.StatementList(node).join('\n');
-        return this.result;
-        // this.result = (this.StatementList(node))
-        // return this.result;
+        return this.StatementList(node);
     }
 
     StatementList(body, env = this.global) {
-        // let result;
-        // for (const statement of body) {
-        //     result = this.Statement(statement, env);
-        // }
-        
-        // return result;
-        return body.map((statement) => this.Statement(statement, env));
+        let result;
+        for (const statement of body) {
+            result = this.Statement(statement, env);
+        }
+        return result;
     }
 
     Statement(node, env) {
@@ -64,28 +58,28 @@ export default class Interpreter {
     }
 
     ForStatement(node, env) {
-        let result = [];
+        let result;
         for (this.Statement(node.init, env); this.Expression(node.test, env); this.Expression(node.update, env)) {
-            result.push(this.Statement(node.body, env));
+            result = this.Statement(node.body, env);
         }
 
         return result;
     }
 
     DoWhileStatement(node, env) {
-        let result = [];
+        let result;
         do {
-            result.push(this.Statement(node.body, env));
+            result = this.Statement(node.body, env);
         }
         while (this.Expression(node.test, env));
         return result;
     }
 
     WhileStatement(node, env) {
-        let result = [];
+        let result;
 
         while (this.Expression(node.test, env)) {
-            result.push(this.Statement(node.body, env));
+            result = this.Statement(node.body, env);
         }
 
         return result;
@@ -174,7 +168,7 @@ export default class Interpreter {
 
     _callWriteExpression(node, env) {
         let args = node.arguments.map((args) => this.Expression(args, env));
-        return args;
+        console.log(...args)
     }
 
     MemberExpression(node, env) {
