@@ -11,7 +11,7 @@ import execute from '../language/run'
 
 function App() {
   const [code, setCode] = useState('');
-  const [output, setOutput] = useState([]);
+  const [output, setOutput] = useState('');
 
   const customLogger = {
     log: (message) => {

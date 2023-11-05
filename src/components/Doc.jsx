@@ -12,8 +12,8 @@ const docData = [
     {
         heading: '# Data Types',
         info: `=> Vyzon supports various data types, including <span style="color: #268bd2">strings</span>, <span style="color: #268bd2">numbers</span>, <span style="color: #268bd2">true</span>, <span style="color: #268bd2">false</span>, and <span style="color: #268bd2">null</span>, to represent a wide range of values. For example:`,
-        code: `
-let a = 'Hello, World!';
+        code:
+            `let a = 'Hello, World!';
 let b = 10;
 let c = 10 + (10 * 3) + a;
 let d = "Ok!";
@@ -32,8 +32,8 @@ let g = false;
     {
         heading: '# Console Output',
         info: `=> In Vyzon, you can print to the console using the <span style="color: #268bd2">write()</span> function. Here are some examples:`,
-        code: `
-let a = 'Anything';
+        code:
+            `let a = 'Anything';
 write(a); 
 write("abc");
 write("write anything: ", a);        
